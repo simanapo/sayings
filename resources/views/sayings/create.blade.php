@@ -32,7 +32,7 @@
             <a class="modal-trigger" href="#modal-registration1"><input class="btn-flat main-btn" type="submit" name="" value="登録"></a>
         </div>
                 
-        <a class="btn-flat sub-btn" href="{{ $_SERVER['HTTP_REFERER'] }}">戻る</a>
+        <a class="btn-flat sub-btn" href="">戻る</a>
     </div>
 
 {{ Form::close() }}

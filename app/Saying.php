@@ -8,8 +8,6 @@ use App\Services\Encryptable;
 
 class Saying extends Model
 {
-    use Encryptable;
-
     // 論理削除有効化
     use SoftDeletes;
     protected $dates = ['deleted_at'];

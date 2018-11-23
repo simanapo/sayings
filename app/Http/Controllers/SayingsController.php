@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\Sayings\FilterService;
 use Illuminate\Http\Request;
+use App\Saying;
 
 class SayingsController extends Controller
 {
@@ -29,7 +30,10 @@ class SayingsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('sayings.index');
+        $sayings = Saying::get();
+
+        return view('sayings.index')
+            ->with('sayings', $sayings);
     }
 
     /**
@@ -61,9 +65,11 @@ class SayingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-
+        $saying = $this->filter_service->insertSaying($request);
+        
+        return redirect()->route('sayings.index');
     }
 
     /**
